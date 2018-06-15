@@ -1,6 +1,7 @@
 const User = require('../models/userModels');
 const { mysecret } = require('../../config');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const createUser = (req, res) => {
   const { username, password } = req.body;
@@ -12,10 +13,14 @@ const createUser = (req, res) => {
         username: user.username
       };
       const token = jwt.sign(payload, mysecret);
-      res.status(201).json(user, token);
+      res.status(201).json({ user: user.username, token });
     })
     .catch(err => res.status(500).json(err));
 };
+
+function generateToken (user) {
+  
+}
 
 module.exports = {
   createUser
