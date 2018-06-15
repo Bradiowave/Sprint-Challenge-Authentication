@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Signup.css';
 
 class Signup extends Component {
 
@@ -27,20 +29,20 @@ class Signup extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>Username: </label>
-                        <input
+            <div className='signup'>
+                <form className='form' onSubmit={this.handleSubmit}>
+                    <div className='usernameDiv'>
+                        <label className='usernameLabel'>Username: </label>
+                        <input className='usernameInput'
                             value={this.state.username}
                             onChange={this.handleInputChange}
                             name='username'
                             type='text'
                         />
                     </div>
-                    <div>
-                        <label>Password: </label>
-                        <input
+                    <div className='passwordDiv'>
+                        <label className='passwordLabel'>Password: </label>
+                        <input className='passwordInput'
                             value={this.state.password}
                             onChange={this.handleInputChange}
                             name='password'
@@ -48,9 +50,10 @@ class Signup extends Component {
                         />
                     </div>
                     <div>
-                        <button type='submit'>Sign Up</button>
+                        <button className='loginButton' type='submit'>Sign Up</button>
                     </div>
                 </form>
+                <Link className='loginLink' to='/login'>Already have an account? Log In Here</Link>
             </div>
         );
     }

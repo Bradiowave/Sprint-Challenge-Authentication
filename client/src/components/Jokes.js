@@ -27,18 +27,30 @@ class Jokes extends Component {
 
     }
 
+    logout = () => {
+        if(localStorage.getItem('jwt')) {
+            localStorage.removeItem('jwt');
+            this.props.history.push('/login');
+        } else {
+            this.props.history.push('/login');
+        }
+    }
+
     render() {
         return (
-            <ul>
-                {this.state.jokes.map(joke => {
-                    return (
-                        <div key={joke.id}>
-                            <li>{joke.setup}</li>
-                            <li>{joke.punchline}</li>
-                        </div>
-                    )
-                })}
-            </ul>
+            <div>
+                <button onClick={this.logout}>Log Out</button>
+                <ul>
+                    {this.state.jokes.map(joke => {
+                        return (
+                            <div key={joke.id}>
+                                <li>Q: {joke.setup}</li>
+                                <li>A: {joke.punchline}</li>
+                            </div>
+                        )
+                    })}
+                </ul>
+            </div>
         );
     }
 }
