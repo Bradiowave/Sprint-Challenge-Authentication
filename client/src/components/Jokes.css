@@ -1,0 +1,60 @@
+.jokes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+}
+
+.logoutButton {
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    background: #82E0AA;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    align-self: flex-end;
+    margin: 10px 25px 0 0;
+}
+
+.logoutButton:hover {
+    cursor: pointer;
+}
+
+.jokeCards {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+.jokeCard {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: #82E0AA 2px solid;
+    border-radius: 2px;
+    background: #EAFAF1;
+}
+
+.setup {
+    color: #EAFAF1;
+    background: #82E0AA;
+    padding: 5px;
+}
+
+.punchline {
+    color: #82E0AA;
+    padding: 5px;
+}
+
+.type {
+    display: flex;
+    height: 100%;
+    color: #82E0AA;
+    padding: 5px;
+    font-size: 10px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}

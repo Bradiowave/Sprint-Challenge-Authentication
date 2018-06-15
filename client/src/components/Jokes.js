@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Jokes.css';
 
 class Jokes extends Component {
 
@@ -38,18 +39,19 @@ class Jokes extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.logout}>Log Out</button>
-                <ul>
-                    {this.state.jokes.map(joke => {
-                        return (
-                            <div key={joke.id}>
-                                <li>Q: {joke.setup}</li>
-                                <li>A: {joke.punchline}</li>
-                            </div>
-                        )
-                    })}
-                </ul>
+            <div className='jokes'>
+                <button className='logoutButton' onClick={this.logout}>Log Out</button>
+                    <div className='jokeCards'>
+                        {this.state.jokes.map(joke => {
+                            return (
+                                <div className='jokeCard' key={joke.id}>
+                                    <div className='setup'>{joke.setup}</div>
+                                    <div className='punchline'>{joke.punchline}</div>
+                                    <div className='type'># {joke.type}</div>
+                                </div>
+                            )
+                        })}
+                    </div>
             </div>
         );
     }
