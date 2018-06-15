@@ -1,4 +1,5 @@
 const User = require('../models/userModels');
+const { mysecret } = require('../../config');
 const bcrypt = require('bcrypt');
 
 const createUser = (req, res) => {
@@ -7,7 +8,11 @@ const createUser = (req, res) => {
   // our pre save hook should kick in here saving this user to the DB with an encrypted password.
   User.create({ username, password })
     .then(user => {
-      res.status(201).json(user);
+      const payload = {
+        username: user.username
+      };
+      const token = jwt.sign(payload, mysecret);
+      res.status(201).json(user, token);
     })
     .catch(err => res.status(500).json(err));
 };
